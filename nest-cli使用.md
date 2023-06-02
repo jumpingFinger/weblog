@@ -1,29 +1,34 @@
 ### nest入门
 
-
 #### 创建 nest
+
 ```
 npm install -g @nestjs/cli
 nest new 项目名
 npm update -g @nestjs/cli
 ```
+
 #### nest 命令
+
 ```
 nest -h
 
 ```
-![image](https://github.com/jumpingFinger/weblog/assets/36480878/f7c4497d-a59c-4448-9356-c68063a3ca5b)
 
+![image](https://github.com/jumpingFinger/weblog/assets/36480878/f7c4497d-a59c-4448-9356-c68063a3ca5b)
 
 #### generate
 
 ```
+
+
 nest generate module test
 nest generate controller test
 nest generate service  test
 
 nest generate application // 生成所有目录，没有git init 和 装包操作
 ```
+
 [schematics模版定义](https://github.com/nestjs/schematics/tree/master/src/lib)
 ![image](https://github.com/jumpingFinger/weblog/assets/36480878/8386606e-121a-48ee-b794-26ac562f4769)
 
@@ -70,6 +75,5 @@ nest generate application // 生成所有目录，没有git init 和 装包操�
 通过设置这些编译选项，可以根据具体项目的需要来调整 TypeScript 编译器的行为，以提高代码的可靠性和性能。
 
 
-
-
-
+#### build
+image.png
