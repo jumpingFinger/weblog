@@ -76,4 +76,21 @@ nest generate application // 生成所有目录，没有git init 和 装包操�
 
 
 #### build
-image.png
+
+
+```
+--wepback 和 --tsc  -- config 
+```
+
+nest-cli.json
+
+```
+{
+  "$schema": "https://json.schemastore.org/nest-cli",
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "src",
+  "compilerOptions": {
+    "deleteOutDir": true
+  }
+}
+```
