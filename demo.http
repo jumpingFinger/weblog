@@ -1,0 +1,11 @@
+# GET http://localhost:3002/api/person
+
+
+# POST http://localhost:3002/api/create
+# Content-Type: application/json
+
+# {
+#     "title": "foo",
+#     "body": "bar",
+#     "userId": 1
+# }
