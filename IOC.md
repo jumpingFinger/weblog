@@ -42,31 +42,57 @@ stopOnEntry 是在首行断住，和 --inspect-brk 一样的效果
 
 ### Providers
 ···typeScirpt
+import { Module } from '@nestjs/common';
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
+
 @Module({
-  controllers: [PersonController],
+  imports: [],
+  controllers: [AppController],
   providers: [
-    // PersonService,
+    AppService,
     {
-      provide: 'appServices',
-      useClass: PersonService,
-    },
-    {
-      provide: 'personInit',
+      provide: 'person',
       useValue: {
+        age: 10,
         name: '无忧',
-        age: 20,
       },
     },
     {
-      provide: 'personInit2',
+      provide: 'personFactory',
       useFactory() {
         return {
-          name: '无忧',
           age: 20,
+          name: '无忧',
+        };
+      },
+    },
+    {
+      provide: 'personDynamic',
+      useFactory(person: { name: string }, appServer: AppService) {
+        return {
+          name: person.name,
+          desc: appServer.getHello(),
+        };
+      },
+      inject: ['person', AppService],
+    },
+
+    {
+      provide: 'asyncPersonDynamic',
+      useExisting: 'asyncPersonDynamicExist',
+      async useFactory() {
+        await new Promise((resolve, reject) => {
+          setTimeout(resolve, 1000);
+        });
+
+        return {
+          name: '无忧',
+          desc: '异步',
         };
       },
     },
   ],
 })
-
+export class AppModule {}
 ···
